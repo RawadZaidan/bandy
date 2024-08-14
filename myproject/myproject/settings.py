@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-i+#2jg$)%#9v)4m5mzd9za^3ubg)#ra_*$w^s1yvj$$o&4%9!d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["bandygo.com","bandygo.com", "13.60.94.33"]
+ALLOWED_HOSTS = ["bandygo.com","http://bandygo.com/","http://bandygo.com", "13.60.94.33"]
 
 
 # Application definition
