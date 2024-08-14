@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #008080; /* Teal */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .company-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .company-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            transition: box-shadow 0.3s ease;
+        }
+        .company-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .company-card h2 {
+            margin-top: 0;
+            color: #008080; /* Teal */
+        }
+        .company-card p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .company-card a {
+            color: #008080; /* Teal */
+            text-decoration: none;
+        }
+        .company-card a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #f8f8f8;
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Companies</h1>
+    </header>
+    <main>
+        <section class="company-list">
+            {% if companies %}
+                {% for company in companies %}
+                    <div class="company-card">
+                        <h2>{{ company.name }}</h2>
+                        <p>Email: {{ company.email }}</p>
+                        <p>Location: {{ company.location }}</p>
+                        <p>Industry: {{ company.industry }}</p>
+                        <p>Bio: {{ company.bio }}</p>
+                        <p>
+                            Website: 
+                            {% if company.website %}
+                                <a href="{{ company.website }}" target="_blank">{{ company.website }}</a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No companies available.</p>
+            {% endif %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Bandy</p>
+    </footer>
+</body>
+</html>
