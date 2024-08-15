@@ -1,0 +1,13 @@
+{% extends 'mainfeed/base.html' %}
+
+{% block content %}
+<section id="intro">
+    <h2>Welcome to Bandy</h2>
+    <p>Bandy connects freelancers, business owners, reservation makers, and customers seamlessly. Whether you’re a freelancer looking to grow your business, a company in need of specialized skills, or someone looking to make a reservation, Bandy has you covered.</p>
+</section>
+
+<section id="options">
+    <a href="{% url 'freelancers' %}" class="button">See Freelancers</a>
+    <a href="{% url 'companies' %}" class="button">Explore Companies</a>
+</section>
+{% endblock %}

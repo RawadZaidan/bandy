@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bandy: Connecting freelancers, business owners, reservation makers, and customers seamlessly.">
+    <meta name="keywords" content="freelancers, business owners, reservations, customers, Bandy">
+    <meta name="author" content="Bandy">
+    <title>Bandy | Seamless Connections for Freelancers and Businesses</title>
+    
+    <!-- External Stylesheet Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Inline CSS for quick styling -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #0033a0; /* Royal Blue */
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+            letter-spacing: -1px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease;
+        }
+
+        .logo h1:hover {
+            color: #e0e0e0; /* Light Grey */
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #002973; /* Darker Royal Blue */
+        }
+
+        main {
+            flex: 1;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #0033a0; /* Royal Blue */
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'Bison.png' %}" alt="Bandy Logo">
+            <h1>Bandy</h1>
+        </a>
+    </div>
+    <nav>
+        <a href="{% url 'freelancers' %}">Freelancers</a>
+        <a href="{% url 'companies' %}">Businesses</a>
+        <a href="#">Reservations</a>
+        <a href="#">Login</a>
+        <a href="#">Signup</a>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    <!-- Content from child templates will be inserted here -->
+    {% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2024 Bandy. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

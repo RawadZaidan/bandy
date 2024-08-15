@@ -1,106 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancers</title>
+{% extends 'mainfeed/base.html' %}
+
+{% block content %}
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #008080; /* Teal */
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        main {
+        .search-bar {
+            margin: 20px auto;
+            max-width: 400px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px;
+            gap: 10px;
         }
-        .search-bar {
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 600px;
-        }
+
         .search-bar input[type="text"] {
-            width: calc(100% - 100px);
+            width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 1em;
         }
+
         .search-bar input[type="submit"] {
-            width: 100px;
-            padding: 10px;
-            background-color: #008080; /* Teal */
+            padding: 10px 20px;
+            background-color: #0033a0; /* Royal Blue */
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
             cursor: pointer;
+            font-weight: bold;
         }
+
+        .search-bar input[type="submit"]:hover {
+            background-color: #002973; /* Darker Royal Blue */
+        }
+
         .freelancer-list {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             justify-content: center;
-            width: 100%;
+            padding: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .freelancer-card {
             background-color: white;
-            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 300px;
-            transition: box-shadow 0.3s ease;
+            text-align: left;
+            transition: transform 0.3s ease;
+            width: 80%; /* Ensure the card takes up the full width of the grid column */
+            max-width: 400px; /* Limit the card's maximum width for better aesthetics */
         }
+
         .freelancer-card:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
         }
+
         .freelancer-card h2 {
-            margin-top: 0;
-            color: #008080; /* Teal */
+            color: #0033a0; /* Royal Blue */
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
+
         .freelancer-card p {
+            color: #666; /* Complementary Grey */
             margin: 5px 0;
-            color: #666;
         }
+
         .freelancer-card a {
-            color: #008080; /* Teal */
+            color: #0033a0; /* Royal Blue */
             text-decoration: none;
         }
+
         .freelancer-card a:hover {
             text-decoration: underline;
         }
-        footer {
-            background-color: #f8f8f8;
-            color: #333;
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid #ddd;
-        }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Freelancers</h1>
-    </header>
+
     <main>
         <form class="search-bar" method="GET" action="{% url 'freelancers' %}">
             <input type="text" name="q" placeholder="Search by name, location, or industry" value="{{ query|default:'' }}">
             <input type="submit" value="Search">
         </form>
+
         <section class="freelancer-list">
             {% if freelancers %}
                 {% for freelancer in freelancers %}
@@ -126,8 +109,4 @@
             {% endif %}
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Bandy</p>
-    </footer>
-</body>
-</html>
+{% endblock %}
