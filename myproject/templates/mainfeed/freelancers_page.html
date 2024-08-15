@@ -33,25 +33,25 @@
         }
 
         .freelancer-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            justify-content: center;
-            padding: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center; /* Center items within their grid column */
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .freelancer-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: left;
-            transition: transform 0.3s ease;
-            width: 80%; /* Ensure the card takes up the full width of the grid column */
-            max-width: 400px; /* Limit the card's maximum width for better aesthetics */
-        }
+.freelancer-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease;
+    width: 100%; /* Ensure the card takes up the full width of its grid column */
+    max-width: 300px; /* Limit the card's maximum width for better aesthetics */
+}
 
         .freelancer-card:hover {
             transform: translateY(-10px);
