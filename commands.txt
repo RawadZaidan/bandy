@@ -1,0 +1,4 @@
+PS C:\Users\96171\Desktop\bandy> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+PS C:\Users\96171\Desktop\bandy> .\bandyenv\Scripts\Activate.ps1
+
+PS C:\Users\96171\Desktop\bandy> django-admin startproject bandy .
